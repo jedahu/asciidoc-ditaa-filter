@@ -27,9 +27,6 @@ class AppError(Exception):
     pass
 
 
-if not DITAA_JAR:
-    raise AppError, 'DITAA_JAR env var not set.'
-
 
 #
 # Application init and logic
@@ -108,6 +105,8 @@ class Application():
 
 
 def asciidoc_filter(lines, **kwargs):
+    if not DITAA_JAR:
+        raise AppError, 'DITAA_JAR env var not set.'
     app = Application(lines, **kwargs)
     app.run()
     return [' ']
