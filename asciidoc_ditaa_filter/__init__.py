@@ -17,7 +17,7 @@ import os, sys, tempfile
 #
 # Configuration constants
 #
-DITAA_JAR = os.environ.get('DITAA_JAR')
+DITAA_JAR = os.path.join(__path__, 'ditaa0_9.jar')
 
 #
 # Helper functions and classes
@@ -105,8 +105,6 @@ class Application():
 
 
 def asciidoc_filter(lines, **kwargs):
-    if not DITAA_JAR:
-        raise AppError, 'DITAA_JAR env var not set.'
     app = Application(lines, **kwargs)
     app.run()
     return [' ']

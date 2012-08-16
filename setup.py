@@ -10,6 +10,6 @@ setup(
     license='GPL2',
     description='In-process ditaa filter for AsciiDoc-jedahu.',
     long_description=open('README').read(),
-    package_data={'asciidoc_ditaa_filter': ['filter.conf']},
+    package_data={'asciidoc_ditaa_filter': ['filter.conf','ditaa0_9.jar']},
     include_package_data=True
     )
