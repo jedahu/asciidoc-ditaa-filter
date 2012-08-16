@@ -1,8 +1,11 @@
 ditaa filter for AsciiDoc
 =========================
-Author: Henrik Maier
+Jeremy Hughes <jed@jedatwork.com>
+v1.0, 2011-02-06: Initial release.
+v1.1, 2011-02-07
+v1.2-jedahu, 2012-08-16: Modified for AsciiDoc-jedahu.
 
-Version: 1.1
+Original author: Henrik Maier.
 
 
 Introduction
@@ -16,6 +19,10 @@ graphics.
 Using the AsciiDoc ditaa filter, ASCII line art can be embedded into AsciiDoc
 documents and processed as PNG bitmap graphics.
 Ditaa as of version 0.9 is limited to the PNG format as output.
+
+NOTE: This variant of the filter operates in-process and thus requires
+the https://github.com/jedahu/asciidoc.git[jedahu variant of AsciiDoc].
+
 
 Usage
 -----
@@ -31,21 +38,21 @@ Usage
 [cols="20e,35m,45",options="header,unbreakable"]
 |==============================================================================
 | Option        | Example                           | Function
-| scaling       | ["ditaa",scaling="2.0"]           | ditaa image scaling
+| scaling       | [ditaa,scaling=2.0]           | ditaa image scaling
     footnote:[`scaling` is different to the DocBook backend's image `scale` attribute!]
-| tabs          | ["ditaa",tabs="4"]  | tabs are normally interpreted as 8 spaces but
+| tabs          | [ditaa,tabs=4]  | tabs are normally interpreted as 8 spaces but
                                         it is possible to change that using this option
-| round-corners | ["ditaa",options="round-corners"] | causes all corners to be rendered as round corners
-| no-separation | ["ditaa",options="no-separation"] | prevents the separation of common edges of shapes
-| no-shadows    | ["ditaa",options="no-shadows"]    | turns off the drop-shadow effect
-| no-antialias  | ["ditaa",options="no-antialias"]  | turns anti-aliasing off
+| round-corners | [ditaa,opts=(round-corners)] | causes all corners to be rendered as round corners
+| no-separation | [ditaa,opts=(no-separation)] | prevents the separation of common edges of shapes
+| no-shadows    | [ditaa,opts=(no-shadows)]    | turns off the drop-shadow effect
+| no-antialias  | [ditaa,opts=(no-antialias)]  | turns anti-aliasing off
 |==============================================================================
 
 
 This AsciiDoc block:
 
 .....................................................................
-["ditaa"]
+[ditaa]
 ---------------------------------------------------------------------
     +--------+   +-------+    +-------+
     |        | --+ ditaa +--> |       |
@@ -61,7 +68,7 @@ This AsciiDoc block:
 
 renders:
 
-["ditaa"]
+[ditaa]
 ---------------------------------------------------------------------
     +--------+   +-------+    +-------+
     |        | --+ ditaa +--> |       |
@@ -99,7 +106,7 @@ Examples
 The following examples are taken from the ditaa documentation.
 
 .Blocks
-["ditaa"]
+[ditaa]
 -------------------------------------------------------------------------------
 +---------+
 | cBLU    |
@@ -112,7 +119,7 @@ The following examples are taken from the ditaa documentation.
 
 
 .Round corners
-["ditaa"]
+[ditaa]
 -------------------------------------------------------------------------------
 /--+
 |  |
@@ -120,7 +127,7 @@ The following examples are taken from the ditaa documentation.
 -------------------------------------------------------------------------------
 
 .Color
-["ditaa"]
+[ditaa]
 -------------------------------------------------------------------------------
 /----\ /----\
 |c33F| |cC02|
@@ -135,7 +142,7 @@ The following examples are taken from the ditaa documentation.
 
 
 .Color codes
-["ditaa"]
+[ditaa]
 -------------------------------------------------------------------------------
 Color codes
 /-------------+-------------\
@@ -149,7 +156,7 @@ Color codes
 
 
 .Dashed lines
-["ditaa"]
+[ditaa]
 -------------------------------------------------------------------------------
 ----+  /----\  +----+
     :  |    |  :    |
@@ -159,7 +166,7 @@ Color codes
 
 
 .Point markers
-["ditaa"]
+[ditaa]
 -------------------------------------------------------------------------------
 *----*
 |    |      /--*
@@ -170,7 +177,7 @@ Color codes
 
 
 .Text handling
-["ditaa"]
+[ditaa]
 -------------------------------------------------------------------------------
 /-----------------\
 | Things to do    |
@@ -184,7 +191,7 @@ Color codes
 
 
 .Flowchart
-["ditaa"]
+[ditaa]
 -------------------------------------------------------------------------------
             +-------+
 +-------+   |       |    +---------+
@@ -201,7 +208,7 @@ Color codes
 
 
 .Shapes
-["ditaa"]
+[ditaa]
 -------------------------------------------------------------------------------
  +----+---+----+----+---+---+---+
  |    |{o}|    |    |{c}|{s}|   |

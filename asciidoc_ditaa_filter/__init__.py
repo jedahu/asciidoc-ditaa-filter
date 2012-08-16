@@ -10,11 +10,9 @@ granted under the terms of the GNU General Public License (GPL).
 Modified by Jeremy Hughes <jed@jedatwork.com> to be an in-process filter.
 """
 
-__version__ = '1.1'
+__version__ = '1.2-jedahu'
 
 import os, sys, tempfile
-from optparse import *
-
 
 #
 # Configuration constants
